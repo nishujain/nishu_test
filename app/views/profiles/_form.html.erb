@@ -1,5 +1,4 @@
 <div class="container">
-  <h2>Create your profile</h2>
   <%= form_for(@profile) do |f| %>
     <% if @profile.errors.any? %>
       <div id="error_explanation">
@@ -12,7 +11,6 @@
         </ul>
       </div>
     <% end %>
-
     <div class="form-group">
       <label for="usr">Name:</label>
       <%= f.text_field :name, :class=>"form-control", :placeholder=>"Enter name or nickname" %>
@@ -27,7 +25,15 @@
     </div>
     <div class="form-group">
       <%= f.label :Age %>
-      <%= f.select(:age, ['18-28', '29-40', '41-65', '66-80'], {prompt: 'Please select ...'}, { :class => 'form-control',:required=>true}) %>
+      <%= f.select(:age, age_option, {prompt: 'Please select ...'}, { :class => 'form-control'}) %>
+    </div>
+    <div class="form-group">
+      <%= f.label :Country %>
+      <%= f.select(:country,country_option, {prompt: 'Please select ...'}, { :class => 'form-control'})%>
+    </div>
+    <div class="form-group">
+      <%= f.label "Zodiac sign" %>
+      <%= f.select(:zodiac_sign,zodiac_sign_option, {prompt: 'Please select ...'}, { :class => 'form-control'}) %>
     </div>
     <div class="form-group">
       <label for="usr">Occupation:</label>
@@ -35,7 +41,11 @@
     </div>
     <div class="form-group">
       <label for="usr">Describe yourself::</label>
-      <%= f.text_area :describe_yourself,:class => 'form-control',:required=>true, :placeholder=>"Write here somthing about you...."%>
+      <%= f.text_area :describe_yourself,:class => 'form-control', :placeholder=>"Write here somthing about you...."%>
+    </div>
+    <div class="form-group">
+      <%= f.label :Birthdate %>
+      <%= f.date_select(:birthdate, :order => [:month, :day, :year]) %>
     </div>
     <div class="form-group">
       <label for="usr">Gender:</label>&nbsp;&nbsp;
@@ -58,25 +68,47 @@
         <%= f.radio_button :marital_status, "Single"%>Single
       </label>
     </div>
-
-    <!-- <div class="form-group">
+    <div class="form-group">
       <label for="usr">Physicality:</label>&nbsp;&nbsp;
-      <label class="radio-inline">
-        <%#= f.check_box :physicality, "Tall"%>Tall
-      </label>
-      <label class="radio-inline">
-        <%#= f.check_box :physicality, "Short"%>Short
-      </label>
-      <label class="radio-inline">
-        <%#= f.check_box :physicality, "Average height"%>Average height
-      </label>
-    </div> -->
+      <% physicality_option.each do |item| %>
+        <label class="radio-inline">
+          <%= f.check_box :physicality,{multiple: true}, item,nil %> <%= item %>
+        </label>
+      <% end %>
+    </div>
+    <div class="form-group">
+      <label for="usr">Sexual Orientation:</label>&nbsp;&nbsp;
+      <% sexual_orientation_option.each do |item| %>
+        <label class="radio-inline">
+          <%= f.check_box :sexual_orientation,{multiple: true}, item,nil %> <%= item %>
+        </label>
+      <% end %>
+    </div>
+    <div class="form-group">
+      <label for="usr">Lifestyle:</label>&nbsp;&nbsp;
+      <% lifestyle_option.each_with_index do |item,index| %>
+        <label class="radio-inline">
+          <%= f.check_box :lifestyle,{multiple: true},item,nil%> <%= item %>
+        </label>
+      <% end %>
+    </div>
 
     <div class="form-group">
-      <%= f.submit "Create", :class=>"btn btn-primary active" %>
+      <label for="usr">Commitment:</label>&nbsp;&nbsp;
+      <% commitment_option.each do |item| %></br>
+        <label class="radio-inline">
+          <%= f.check_box :commitment,{multiple: true},item,nil %> <%= item %>
+        </label>
+      <% end %>
+    </div>
+    <div class="form-group">
+      <%= f.submit "Create", :class=>"btn btn-primary active"%>
+    </div>
     </div>
   <% end %>
 </div>
+
+
 
 
 

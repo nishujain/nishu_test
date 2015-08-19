@@ -1,9 +1,76 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @profile.name %>
-</p>
-
-<%= link_to 'Edit', edit_profile_path(@profile) %> |
-<%= link_to 'Back', profiles_path %>
+<!-- <p id="notice"><%= notice %></p> -->
+<div class="row">
+  <div class="col-sm-1"></div>
+  <div class="col-sm-10">
+	  <table class="table table-hover">
+		  <%if current_user.profile.present? %>
+		    <tr>
+		      <td>Name</td>
+		      <td><%= @profile.name %></td>
+		    </tr>  
+		    <tr>
+		      <td>City</td>
+		      <td><%= @profile.city %></td>
+		    </tr> 
+		    <tr>
+		      <td>Phone</td>
+		      <td><%= @profile.phone_number %></td>
+		    </tr> 
+		    <tr>
+		      <td>Age</td>
+		      <td><%= @profile.age %></td>
+		    </tr> 
+		    <tr>
+		      <td>Country</td>
+		      <td><%= @profile.country %></td>
+		    </tr> 
+		    <tr>
+		      <td>Zodiac Sign</td>
+		      <td><%= @profile.zodiac_sign %></td>
+		    </tr> 
+		    <tr>
+		      <td>Occupation</td>
+		      <td><%= @profile.occupation %></td>
+		    </tr> 
+		    <tr>
+		      <td>DOB</td>
+		      <td><%= @profile.birthdate %></td>
+		    </tr> 
+		    <tr>
+		      <td>Gender</td>
+		      <td><%= @profile.sex %></td>
+		    </tr> 
+		    <tr>
+		      <td>Marital Status</td>
+		      <td><%= @profile.marital_status %></td>
+		    </tr> 
+		    <tr>
+		      <td>Physicality</td>
+		      <td><%= @profile.physicality %></td>
+		    </tr> 
+		    <tr>
+		      <td>Commitment</td>
+		      <td><%= @profile.commitment %></td>
+		    </tr> 
+		    <tr>
+		      <td>Sexual Orientation</td>
+		      <td><%= @profile.sexual_orientation %></td>
+		    </tr> 
+		    <tr>
+		      <td>Lifestyle</td>
+		      <td>
+		        <%# @profile.lifestyle.each do |lifestyle| %>
+		        <%#= lifestyle %>
+		        <%= @profile.lifestyle %>
+		       <%#end%>
+		      </td>
+		    </tr>
+		  <%else%>
+		    <tr>
+		      <td>create your profile</td>
+		    </tr>
+		  <%end%>
+		</table>
+  </div>
+  <div class="col-sm-1"></div>
+</div>
