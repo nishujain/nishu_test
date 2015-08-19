@@ -1,7 +1,7 @@
 production:
  adapter: postgresql
  encoding: unicode
- database: whitepeoplemeet_app
+ database: whitepeoplemeet_app_production
  pool: 5
  user: postgres
  password: root
