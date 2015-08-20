@@ -1,31 +1,39 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
 
-  # GET /profiles
-  # GET /profiles.json
   def index
-    @profile = current_user.profile
+    if current_user.is_verified == false
+      redirect_to unverified_number_profiles_path
+    else 
+     @profile = current_user.profile
+    end
   end
 
-  # GET /profiles/1
-  # GET /profiles/1.json
   def show
   end
 
-  # GET /profiles/new
+  def unverified_number
+  end 
+
+  def verify_number
+    user = User.find(current_user.id)
+    if user.verification_code == params[:verification_code] 
+      user.update(:is_verified=>true)
+      redirect_to root_path
+    else
+      redirect_to :back
+    end
+  end 
+
   def new
     @profile = Profile.new
   end
 
-  # GET /profiles/1/edit
   def edit
   end
 
-  # POST /profiles
-  # POST /profiles.json
   def create
     @profile = current_user.build_profile(profile_params)
-
     respond_to do |format|
       if @profile.save
         format.html { redirect_to @profile, notice: 'Profile was successfully created.' }
@@ -37,8 +45,6 @@ class ProfilesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /profiles/1
-  # PATCH/PUT /profiles/1.json
   def update
     respond_to do |format|
       if @profile.update(profile_params)
@@ -51,8 +57,6 @@ class ProfilesController < ApplicationController
     end
   end
 
-  # DELETE /profiles/1
-  # DELETE /profiles/1.json
   def destroy
     @profile.destroy
     respond_to do |format|
@@ -62,13 +66,12 @@ class ProfilesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_profile
       @profile = Profile.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def profile_params
-      params.require(:profile).permit(:name,:city,:phone_number,:age,:occupation,:describe_yourself,:sex,:marital_status,:country,:city_of_residence,:zodiac_sign,:birthdate,:lifestyle=>[],:physicality=>[],:sexual_orientation=>[],:commitment=>[])
+      params.require(:profile).permit!
+      # params.require(:profile).permit(:name,:city,:phone_number,:age,:occupation,:describe_yourself,:sex,:marital_status,:country,:city_of_residence,:zodiac_sign,:birthdate, :lifestyle)
     end
 end

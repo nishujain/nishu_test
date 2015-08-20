@@ -1,0 +1,9 @@
+<div class="col-xs-2">
+  <%= form_tag verify_number_profiles_path do %>
+	  <label for="ex1">Enter 4 digit code:</label>
+	  <%= text_field_tag :verification_code,nil, :class=>"form-control" %>
+	  <%= submit_tag "submit"%>
+  <% end %>
+</div>
+
+

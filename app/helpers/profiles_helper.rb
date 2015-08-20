@@ -1,6 +1,6 @@
 module ProfilesHelper
 	def lifestyle_option
-		["Professional", "Blue collar", "Technology","Self employed","Religious","Political", "Party", "Cultural", "Public service", "Outdoors" , "Travel" , "Sports", "Fitness" , "Educational", "Family" , "Survivalist", "Music" , "Entertainer" , "Theatrical", "Foodie", "Vegetarian" , "Vegan", "Artistic", "Intellectual", "Beach", "Workaholic"]
+		["Professional","Blue collar","Technology","Self employed","Religious","Political","Party","Cultura","Public service","Outdoors","Travel","Sports","Fitness","Educational","Family","Survivalist","Music","Entertainer","Theatrical","Foodie","Vegetarian","Vegan","Artistic","Intellectual","Beach","Workaholic"]
 	end
 	def physicality_option
 		["Tall", "Short", "Average height","Thin","Heavy","Average weight", "Physically challenged"] 

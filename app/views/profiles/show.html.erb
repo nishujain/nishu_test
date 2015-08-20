@@ -11,7 +11,7 @@
 		    <tr>
 		      <td>City</td>
 		      <td><%= @profile.city %></td>
-		    </tr> 
+		    </tr>
 		    <tr>
 		      <td>Phone</td>
 		      <td><%= @profile.phone_number %></td>
@@ -46,23 +46,20 @@
 		    </tr> 
 		    <tr>
 		      <td>Physicality</td>
-		      <td><%= @profile.physicality %></td>
+		      <td><%= JSON.parse(@profile.physicality).join(", ") if @profile.physicality %></td>
 		    </tr> 
 		    <tr>
 		      <td>Commitment</td>
-		      <td><%= @profile.commitment %></td>
+		      <td><%= JSON.parse(@profile.commitment).join(", ") if @profile.commitment%></td>
 		    </tr> 
 		    <tr>
 		      <td>Sexual Orientation</td>
-		      <td><%= @profile.sexual_orientation %></td>
+		      <td><%=JSON.parse(@profile.sexual_orientation).join(", ") if @profile.sexual_orientation %></td>
 		    </tr> 
 		    <tr>
-		      <td>Lifestyle</td>
+		      <td>Lifestyle</td>		      
 		      <td>
-		        <%# @profile.lifestyle.each do |lifestyle| %>
-		        <%#= lifestyle %>
-		        <%= @profile.lifestyle %>
-		       <%#end%>
+		        <%= JSON.parse(@profile.lifestyle).join(", ") if @profile.lifestyle%>
 		      </td>
 		    </tr>
 		  <%else%>
