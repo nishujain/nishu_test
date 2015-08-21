@@ -8,14 +8,11 @@ production:
  host: localhost
 
 development:
- adapter: postgresql
- encoding: unicode
- database: whitepeoplemeet_development
- pool: 5
- user: postgres
- host: localhost
- password: 12345678
-
-
-
-
+  adapter: postgresql
+  encoding: unicode
+  database: whitepeoplemeet_development
+  pool: 5
+  username: postgres
+  password: 12345678
+  host: localhost
+  port: 5432     
