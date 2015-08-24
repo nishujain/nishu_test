@@ -45,13 +45,10 @@
             <label for="usr">*Occupation:</label>
             <%= f.text_field :occupation, :class=>"form-control", :placeholder=>"Occupation" %>
           </div>
-          <div class="form-group">
-            <label for="usr">*Describe yourself:</label>
-            <%= f.text_area :describe_yourself,:class => 'form-control', :placeholder=>"Write here somthing about you...."%>
-          </div>
+          
           <div class="form-group">
             <%= f.label :Birthdate %>*
-            <%= f.date_select(:birthdate, :order => [:month, :day, :year]) %>
+            <%= f.text_field :birthdate , :id=>"datepicker", :class=>"form-control"%>
           </div>
           <div class="form-group">
             <label for="usr">*Gender:</label>&nbsp;&nbsp;
@@ -142,12 +139,63 @@
   </div>
 </div>
 
-<script type="text/javascript">
-$(".open-attachment").click(function(){
- $("#add-attachment").modal('show')
-})
+<script>
+  $("#new_profile").validate({
+    rules: {
+      "profile[name]": {
+        required: true
+      },
+      "profile[city]": {
+        required: true
+      },
+      "profile[phone_number]": {
+        required:true,
+        minlength:9,
+        number: true
+      },
+      "profile[age]": {
+        required:true,
+      },
+      "profile[country]": {
+        required:true,
+      },
+      "profile[occupation]": {
+        required:true,
+      },
+      "profile[birthdate]": {
+        required:true,
+      }      
+    },
+      messages:{
+      "profile[name]":{
+        required: "Name must be enter"
+       },
+       "profile[city]":{
+        required: "City must be enter"
+       },
+       "profile[phone_number]":{
+        required: "Enter valid number"
+       },
+       "profile[age]":{
+        required: "Age must be enter"
+       },
+       "profile[country]":{
+        required: "Country must be enter"
+       },
+       "profile[occupation]":{
+        required: "Occupation must be enter"
+       },
+       "profile[birthdate]":{
+        required: "Birthdate must be enter"
+       }
+      }
+  });
+
+  $(function() {
+    $( "#datepicker" ).datepicker()({ dateFormat: 'dd-mm-yy' }).val();
+  });
+  // $(".open-attachment").click(function(){
+  //  $("#add-attachment").modal('show')
+  // })
 </script>
-
-
-
 

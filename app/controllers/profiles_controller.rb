@@ -8,19 +8,20 @@ class ProfilesController < ApplicationController
   end
 
   def unverified_number
-    # @to = params[:phone_no]
-    # @from = '+1 415-599-2671'
-    # @code = rand.to_s[2..5]
-    # client = Twilio::REST::Client.new "AC7ddc50cee0b6e24d55ca9fe125d09a61" , "cf35171f7cfc0787636c030bc3eaf2fd"
-    # sent_message = client.account.messages.create({ :from =>@from , :to => @to, :body => "verify your account code is #{@code}."}) 
-    # user = current_user.update(:mobile_number=>@to,:verification_code=>@code)
-    # if sent_message && user
-    #   @messge = "Verification code sent entered number"
-    #   respond_to do |format|
-    #   format.js
-    #   end
-    # end
-  end 
+    @to = params[:phone_no]
+    @from = '+1 415-599-2671'
+    @code = rand.to_s[2..5]
+    client = Twilio::REST::Client.new "AC7ddc50cee0b6e24d55ca9fe125d09a61" , "cf35171f7cfc0787636c030bc3eaf2fd"
+    sent_message = client.account.messages.create({ :from =>@from , :to => @to, :body => "verify your account code is #{@code}."}) 
+    user = current_user.update(:mobile_number=>@to,:verification_code=>@code)
+    if sent_message && user
+      @messge = "Verification code sent entered number"
+      respond_to do |format|
+      format.js
+      end
+    end
+  end
+    
 
   def verify_number
   end 
@@ -71,6 +72,6 @@ class ProfilesController < ApplicationController
     end
 
     def profile_params
-      params.require(:profile).permit(:name,:city,:phone_number,:age,:occupation,:describe_yourself,:sex,:marital_status,:country,:city_of_residence,:zodiac_sign,:birthdate, :lifestyle=>[], :commitment=>[], :sexual_orientation=>[],:physicality=>[])
+      params.require(:profile).permit(:name,:city,:phone_number,:age,:occupation,:sex,:marital_status,:country,:city_of_residence,:zodiac_sign,:birthdate, :lifestyle=>[], :commitment=>[], :sexual_orientation=>[],:physicality=>[])
     end
 end
