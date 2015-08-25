@@ -7,7 +7,9 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="<%=root_path%>">Home</a></li>
         <% if user_signed_in? %>
-         <li><a href="<%=profile_path(current_user.profile.id)%>">Profile</a></li>
+          <% if current_user.profile.present?%>
+            <li><a href="<%=profile_path(current_user.profile.id)%>">Profile</a></li>
+          <%end%>
          <li><a href="#-" class="membership_plan">Plan</a></li>
          <li>
             <form class="navbar-form navbar-left" role="search">

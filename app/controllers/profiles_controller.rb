@@ -1,9 +1,10 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
-
+  
+  
   def index
+    trial_expired?
   end
-
   def show
   end
 
@@ -22,9 +23,12 @@ class ProfilesController < ApplicationController
     end
   end
     
-
   def verify_number
   end 
+  
+  def upgrade_page
+    
+  end
 
   def new
     @profile = Profile.new
