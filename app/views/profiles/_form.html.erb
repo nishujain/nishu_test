@@ -20,36 +20,26 @@
             <%= f.text_field :name, :class=>"form-control", :placeholder=>"Enter name or nickname" %>
           </div>
           <div class="form-group">
-            <label for="usr">City:</label>
+            <label for="usr">*City:</label>
             <%= f.text_field :city, :class=>"form-control", :placeholder=>"Enter city of residence" %>
           </div>
-          <div class="form-group">
-            <label for="usr">*Phone Number:</label><br>
-            <%= f.text_field :phone_number, :class=>"form-control", :placeholder=>"Enter Phone Number", :onchange => "search_func(this.value);" %>
-            <!-- <a href="#-" class="open-attachment">Verify Number</a>
-            <span id="varify_link"></span> -->
-          </div>
-          <div class="form-group">
-            <%= f.label :Age %>*
-            <%= f.select(:age, age_option, {prompt: 'Please select ...'}, { :class => 'form-control'}) %>
-          </div>
+          <!-- <div class="form-group">
+            <%#= f.label :Age %>*
+            <%#= f.select(:age, age_option, {prompt: 'Please select ...'}, { :class => 'form-control'}) %>
+          </div> -->
           <div class="form-group">
             <%= f.label :Country %>*
             <%= f.select(:country,country_option, {prompt: 'Please select ...'}, { :class => 'form-control'})%>
           </div>
           <div class="form-group">
-            <%= f.label "Zodiac sign" %>*
-            <%= f.select(:zodiac_sign,zodiac_sign_option, {prompt: 'Please select ...'}, { :class => 'form-control'}) %>
+            <%= f.label "Zodiac sign" %>
+            <%= f.select(:zodiac_sign,zodiac_sign_option, {prompt: 'Please select ...'}, { :class => 'form-control'}) %></
           </div>
           <div class="form-group">
             <label for="usr">*Occupation:</label>
             <%= f.text_field :occupation, :class=>"form-control", :placeholder=>"Occupation" %>
           </div>
           
-          <div class="form-group">
-            <%= f.label :Birthdate %>*
-            <%= f.text_field :birthdate , :id=>"datepicker", :class=>"form-control"%>
-          </div>
           <div class="form-group">
             <label for="usr">*Gender:</label>&nbsp;&nbsp;
             <label class="radio-inline">
@@ -116,29 +106,6 @@
   </div>
 </div>
 
-
-<div id="add-attachment" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title">New Attachment</h4>
-      </div>
-      <div class="modal-body">
-        <%= form_tag verify_number_profiles_path do %>
-          <div>
-            <label for="ex1">Enter 4 digit code:</label>
-            <%= text_field_tag :verification_code,nil, :class=>"form-control" %>
-          </div>
-          <div class="modal-footer">
-           <%= submit_tag "submit", :class=>"btn btn-primary"%>
-          </div>
-        <%end%>
-      </div>
-    </div>
-  </div>
-</div>
-
 <script>
   $("#new_profile").validate({
     rules: {
@@ -148,23 +115,33 @@
       "profile[city]": {
         required: true
       },
-      "profile[phone_number]": {
-        required:true,
-        minlength:9,
-        number: true
-      },
-      "profile[age]": {
-        required:true,
-      },
+      // "profile[age]": {
+      //   required:true,
+      // },
       "profile[country]": {
         required:true,
       },
       "profile[occupation]": {
         required:true,
-      },
-      "profile[birthdate]": {
-        required:true,
-      }      
+      }
+      // "profile[sex]": {
+      //   required:true,
+      // },
+      // "profile[marital_status]": {
+      //   required:true,
+      // },
+      // "profile[physicality][]": {
+      //   required:true,
+      // },
+      // "profile[sexual_orientation]": {
+      //   required:true,
+      // },
+      // "profile[lifestyle]": {
+      //   required:true,
+      // },
+      // "profile[commitment]": {
+      // required:true,
+      // },                        
     },
       messages:{
       "profile[name]":{
@@ -173,29 +150,34 @@
        "profile[city]":{
         required: "City must be enter"
        },
-       "profile[phone_number]":{
-        required: "Enter valid number"
-       },
-       "profile[age]":{
-        required: "Age must be enter"
-       },
+       // "profile[age]":{
+       //  required: "Age must be enter"
+       // },
        "profile[country]":{
         required: "Country must be enter"
        },
        "profile[occupation]":{
         required: "Occupation must be enter"
-       },
-       "profile[birthdate]":{
-        required: "Birthdate must be enter"
        }
+       // "profile[sex]": {
+       //  required: "Gender must be enter"
+       //  },
+       //  "profile[marital_status]": {
+       //    required: "Marital status must be enter"
+       //  },
+       //  "profile[physicality][]": {
+       //    required: "Physicality must be enter"
+       //  },
+       //  "profile[sexual_orientation]": {
+       //    required: "Must be enter"
+       //  },
+       //  "profile[lifestyle]": {
+       //    required: "Lifestyle status must be enter"
+       //  },
+       //  "profile[commitment]": {
+       //  required: "Commitment status must be enter"
+       //  }    
       }
   });
-
-  $(function() {
-    $( "#datepicker" ).datepicker()({ dateFormat: 'dd-mm-yy' }).val();
-  });
-  // $(".open-attachment").click(function(){
-  //  $("#add-attachment").modal('show')
-  // })
 </script>
 

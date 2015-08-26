@@ -48,7 +48,12 @@
               <%= f.password_field :password_confirmation,:class=>"form-control", :placeholder=>"Password confirmation", autocomplete: "off" %>
           </div>
         </div>
-
+        <div class="form-group">
+          <label for="icode" class="col-md-3 control-label"> Mobile number</label>
+          <div class="col-md-9" style="margin-bottom: 25px;">
+              <%= f.text_field :mobile_number,:class=>"form-control", :placeholder=>"Enter mobile number"%>
+          </div>
+        </div>
         <div class="form-group">                                
           <div class="col-md-offset-4 col-md-9">
               <%= f.submit "Sign up", :class=>"btn btn-info" %>
@@ -57,3 +62,21 @@
     <%end%>
   </div>
 </div>
+
+<script>
+  $("#new_user").validate({
+    rules: {
+      "user[mobile_number]": {
+        required: true,
+         minlength:9,
+         number: true
+      } 
+    },
+      messages:{
+      "user[mobile_number]":{
+        required: "Mobile number Must be enter",
+        number: "Please enter only digits"
+       } 
+      }
+  });
+</script>
