@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-#ruby '2.1.3'
+ruby '2.1.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
@@ -24,7 +24,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'devise'
-gem 'bootstrap-sass', '~> 3.3.5'
+gem 'bootstrap-sass', '~> 3.3.5.1'
 gem 'twilio-ruby'
 gem 'puma', '~> 2.11.1'
 gem 'rails_12factor', '0.0.2'
