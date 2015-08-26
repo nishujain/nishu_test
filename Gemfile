@@ -28,6 +28,7 @@ gem 'bootstrap-sass', '~> 3.3.5'
 gem 'twilio-ruby'
 gem 'puma', '~> 2.11.1'
 gem 'rails_12factor', '0.0.2'
+gem 'stripe'
 
 
 
