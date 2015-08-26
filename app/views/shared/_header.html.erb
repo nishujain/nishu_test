@@ -9,12 +9,12 @@
         <% if user_signed_in? %>
           <% if current_user.profile.present?%>
             <li><a href="<%=profile_path(current_user.profile.id)%>">Profile</a></li>
+            <li><a href="<%=upgrade_page_profiles_path%>">Plans</a></li>
           <%end%>
-         <li><a href="#-" class="membership_plan">Plan</a></li>
          <li>
             <form class="navbar-form navbar-left" role="search">
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Search">
+                <input type="text" class="form-control" placeholder="Search" id="search_user">
               </div>
             </form>
           </li>
@@ -45,31 +45,5 @@
   </div>
 </nav>
 
-<!-- <div id="add-attachment" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title">Choose membership plan</h4>
-      </div>
-      <div class="modal-body">
-        <div class="list-group">
-          <a href="#" class="list-group-item">$1 month, review 50 profiles
-          </a>
-          <a href="#" class="list-group-item">Basic: $19 review 200 profiles</a>
-          <a href="#" class="list-group-item">Casual: $59 review 600 profiles</a>
-          <a href="#" class="list-group-item">Focused: $129 review 1200 profiles</a>
-          <a href="#" class="list-group-item">Silver: $259 review unlimited profiles, 15 sec video clip</a>
-          <a href="#" class="list-group-item">Gold: $599 review unlimited profiles, 15 sec video clip, anonymous profile</a>
-          <a href="#" class="list-group-item">Diamond: $1299  review unlimited profiles, 15 sec video clip, anonymous profile, contact request</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->
 
-<script type="text/javascript">  
-//   $(".membership_plan").click(function(){
-//   $("#add-attachment").modal('show')
-// })
-</script>
+

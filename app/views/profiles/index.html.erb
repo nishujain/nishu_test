@@ -2,7 +2,16 @@
     <div class="col-sm-4">
     </div>
     <div class="col-sm-4">
-     <h3> !Welcome <%=current_user.fullname.capitalize %></h3>
+     <h3> Welcome <%=current_user.fullname.capitalize %></h3>
+     <table class="table">
+	    <%@users.each do |user| %>
+	    	<%if user != current_user %>
+	    		<tr>
+	    			<td><%= link_to user.fullname, profile_path(user.profile.id)%></td>
+	    		</tr>
+	    	<%end%>
+	    <%end%>
+     </table>
     </div>
     <div class="col-sm-4">
     </div>

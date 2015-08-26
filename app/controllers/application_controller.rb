@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
 
   def configure_permitted_parameters
-   devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:email,:password,:password_confirmation,:first_name,:last_name, :username) }
+   devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:email,:password,:password_confirmation,:first_name,:last_name, :username, :mobile_number) }
   end
 
   def after_sign_in_path_for(resource)

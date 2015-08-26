@@ -1,10 +1,10 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
-  
-  
   def index
     trial_expired?
+    @users = User.all
   end
+
   def show
   end
 
@@ -27,7 +27,6 @@ class ProfilesController < ApplicationController
   end 
   
   def upgrade_page
-    
   end
 
   def new
