@@ -3,7 +3,7 @@
 		<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
 			<div class="panel price panel-blue">
 				<div class="panel-heading arrow_box text-center">
-				<h3>Free Trial</h3>
+				<h3>Trial plan</h3>
 				</div>
 				<div class="panel-body text-center">
 					<p class="lead" style="font-size:40px"><strong>$1 / month</strong></p>
@@ -12,7 +12,21 @@
 					<li class="list-group-item"><i class="icon-ok text-danger"></i> 50 profiles</li>
 				</ul>
 				<div class="panel-footer">
-					<a class="btn btn-lg btn-block btn-info" href="#">BUY NOW!</a>
+					<%= form_tag buy_membership_plan_payments_path do %>
+					  <script
+					   src="https://checkout.stripe.com/checkout.js"
+					    class="stripe-button"
+					    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+					    data-name="Whitepeoplemeet app"
+					    data-description="Stripe payment"
+					    data-amount="100"
+					    data-locale="auto"
+					    data-label="BUY NOW!"
+					    >
+					  </script>
+					   <%= hidden_field_tag :plan_type, "Trial plan" %> 
+					   <%= hidden_field_tag :plan_price, 1 %> 
+					<% end %>
 				</div>
 			</div>
 		</div>
@@ -29,7 +43,21 @@
 					<li class="list-group-item"><i class="icon-ok text-danger"></i> 200 profiles</li>
 				</ul>
 				<div class="panel-footer">
-					<a class="btn btn-lg btn-block btn-info" href="#">BUY NOW!</a>
+					<%= form_tag buy_membership_plan_payments_path do %>
+					  <script
+					   src="https://checkout.stripe.com/checkout.js"
+					    class="stripe-button"
+					    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+					    data-name="Whitepeoplemeet app"
+					    data-description="Stripe payment"
+					    data-amount="1900"
+					    data-locale="auto"
+					    data-label="BUY NOW!"
+					    >
+					  </script>
+					  <%= hidden_field_tag :plan_type, "Basic" %> 
+					  <%= hidden_field_tag :plan_price, 19 %> 
+					<% end %>
 				</div>
 			</div>
 		</div>
@@ -46,7 +74,21 @@
 					<li class="list-group-item"><i class="icon-ok text-danger"></i> 600 profiles</li>
 				</ul>
 				<div class="panel-footer">
-					<a class="btn btn-lg btn-block btn-info" href="#">BUY NOW!</a>
+					<%= form_tag buy_membership_plan_payments_path do %>
+					  <script
+					   src="https://checkout.stripe.com/checkout.js"
+					    class="stripe-button"
+					    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+					    data-name="Whitepeoplemeet app"
+					    data-description="Stripe payment"
+					    data-amount="5900"
+					    data-locale="auto"
+					    data-label="BUY NOW!"
+					    >
+					  </script>
+					  <%= hidden_field_tag :plan_type, "Casual" %> 
+					  <%= hidden_field_tag :plan_price, 59 %> 
+					<% end %>
 				</div>
 			</div>
 		</div>
@@ -63,7 +105,21 @@
 					<li class="list-group-item"><i class="icon-ok text-danger"></i> 1200 profiles</li>
 				</ul>
 				<div class="panel-footer">
-					<a class="btn btn-lg btn-block btn-info" href="#">BUY NOW!</a>
+					<%= form_tag buy_membership_plan_payments_path do %>
+					  <script
+					   src="https://checkout.stripe.com/checkout.js"
+					    class="stripe-button"
+					    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+					    data-name="Whitepeoplemeet app"
+					    data-description="Stripe payment"
+					    data-amount="12900"
+					    data-locale="auto"
+					    data-label="BUY NOW!"
+					    >
+					  </script>
+					  <%= hidden_field_tag :plan_type, "Focused" %> 
+					  <%= hidden_field_tag :plan_price, 129 %>
+					<% end %>
 				</div>
 			</div>
 		</div>
@@ -81,7 +137,21 @@
 					<li class="list-group-item"><i class="icon-ok text-danger"></i> Unlimited profiles</li>
 				</ul>
 				<div class="panel-footer">
-					<a class="btn btn-lg btn-block btn-info" href="#">BUY NOW!</a>
+					<%= form_tag buy_membership_plan_payments_path do %>
+					  <script
+					   src="https://checkout.stripe.com/checkout.js"
+					    class="stripe-button"
+					    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+					    data-name="Whitepeoplemeet app"
+					    data-description="Stripe payment"
+					    data-amount="25900"
+					    data-locale="auto"
+					    data-label="BUY NOW!"
+					    >
+					  </script>
+					  <%= hidden_field_tag :plan_type, "Silver" %> 
+					  <%= hidden_field_tag :plan_price, 259 %>
+					<% end %>
 				</div>
 			</div>
 		</div>
@@ -100,7 +170,21 @@
 					<li class="list-group-item"><i class="icon-ok text-danger"></i>anonymous profile</li>
 				</ul>
 				<div class="panel-footer">
-					<a class="btn btn-lg btn-block btn-info" href="#">BUY NOW!</a>
+					<%= form_tag buy_membership_plan_payments_path do %>
+					  <script
+					   src="https://checkout.stripe.com/checkout.js"
+					    class="stripe-button"
+					    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+					    data-name="Whitepeoplemeet app"
+					    data-description="Stripe payment"
+					    data-amount="59900"
+					    data-locale="auto"
+					    data-label="BUY NOW!"
+					    >
+					  </script>
+					  <% hidden_field_tag :plan_type, "Gold" %> 
+					  <%= hidden_field_tag :plan_price, 599 %>
+					<% end %>
 				</div>
 			</div>
 		</div>
@@ -122,7 +206,21 @@
 					<li class="list-group-item"><i class="icon-ok text-danger"></i>contact request block</li>
 				</ul>
 				<div class="panel-footer">
-					<a class="btn btn-lg btn-block btn-info" href="#">BUY NOW!</a>
+					<%= form_tag buy_membership_plan_payments_path do %>
+					  <script
+					   src="https://checkout.stripe.com/checkout.js"
+					    class="stripe-button"
+					    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+					    data-name="Whitepeoplemeet app"
+					    data-description="Stripe payment"
+					    data-amount="129900"
+					    data-locale="auto"
+					    data-label="BUY NOW!"
+					    >
+					  </script>
+					  <% hidden_field_tag :plan_type, "Diamond" %> 
+					  <%= hidden_field_tag :plan_price, 1299 %>
+					<% end %>
 				</div>
 			</div>
 			<!-- /PRICE ITEM -->
@@ -130,3 +228,4 @@
 	</div>
 </div>
 
+	

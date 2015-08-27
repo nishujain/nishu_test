@@ -7,6 +7,11 @@ Rails.application.routes.draw do
   		get  'upgrade_page'
   	end
   end
+  resources :payments do 
+  	collection do
+  		post 'buy_membership_plan'
+  	end
+  end
   root 'profiles#index'
 end
 

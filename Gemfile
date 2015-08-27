@@ -28,7 +28,7 @@ gem 'bootstrap-sass', '~> 3.3.5.1'
 gem 'twilio-ruby'
 gem 'puma', '~> 2.11.1'
 gem 'rails_12factor', '0.0.2'
-
+gem 'stripe'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

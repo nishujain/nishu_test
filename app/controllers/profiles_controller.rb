@@ -1,11 +1,14 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
+  before_action :trial_expired?, only:[:index,:show,:edit]
   def index
-    trial_expired?
     @users = User.all
   end
 
   def show
+    if current_user.profile.id != @profile.id
+     current_user.update(:profile_count=>current_user.profile_count+1)     
+    end
   end
 
   def unverified_number
@@ -70,6 +73,19 @@ class ProfilesController < ApplicationController
   end
 
   private
+    def remaining_days
+     ((current_user.created_at + 30.days).to_date - Date.today).round
+    end
+
+    def trial_expired?
+      if current_user.plan_type == "Free plan" && current_user.profile_count == 20
+        redirect_to upgrade_page_profiles_path
+      elsif current_user.plan_type == "Free plan" && remaining_days <= 0 
+        redirect_to upgrade_page_profiles_path
+      else
+       root_path
+      end
+    end
     def set_profile
       @profile = Profile.find(params[:id])
     end
